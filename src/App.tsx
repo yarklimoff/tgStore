@@ -1,18 +1,25 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import { Button } from 'antd';
-const tg = window.Telegram.WebApp;
+import { Catalog } from './pages/catalog/catalog';
+import { Item } from './pages/item/item';
+import 'normalize.css';
+import cn from './App.module.css';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Catalog />,
+  },
+  {
+    path: '/catalog/:article',
+    element: <Item />,
+  },
+]);
+
 function App() {
-  useEffect(() => {
-    tg.ready();
-  }, []);
-  const onClose = () => {
-    tg.close();
-  };
   return (
-    <div className="App">
-      work
-      <Button onClick={onClose}>Закрыть</Button>
+    <div className={cn.app}>
+      <RouterProvider router={router} />
     </div>
   );
 }
