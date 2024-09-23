@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import cn from './item.module.css';
 import { Header } from './header/header';
-import { useParams } from 'react-router-dom';
 import Image from '../../assets/boots.png';
 import classNames from 'classnames';
 import { Carousel } from 'antd';
@@ -9,7 +8,6 @@ import { Carousel } from 'antd';
 const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F0', '#FFC133'];
 const sizes = [41, 42, 43, 44, 45];
 const Item = () => {
-  const article = useParams();
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const handleColorSelect = (color: string) => {
     setSelectedColor(color);

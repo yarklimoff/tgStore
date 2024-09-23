@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { Catalog } from './pages/catalog/catalog';
 import { Item } from './pages/item/item';
 import 'normalize.css';
