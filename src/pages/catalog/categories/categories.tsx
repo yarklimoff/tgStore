@@ -1,5 +1,6 @@
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import cn from './categories.module.css';
+import classNames from 'classnames';
 const mockCategories: { value: string; label: ReactNode }[] = [
   {
     value: 'all',
@@ -34,13 +35,21 @@ const mockCategories: { value: string; label: ReactNode }[] = [
     label: 'Техника',
   },
 ];
-const Categories = () => {
+
+type CategoriesProps = {
+  category: string;
+  onChangeCategory: (value: string) => void;
+};
+
+const Categories: FC<CategoriesProps> = ({ category, onChangeCategory }) => {
   return (
     <div className={cn.container}>
-      <h2>Категории</h2>
       <div className={cn['scrollable-tabs-container']}>
         {mockCategories.map((item, index) => (
-          <button key={index} className={cn['tab']}>
+          <button
+            key={index}
+            onClick={() => onChangeCategory(item.value)}
+            className={classNames(cn['tab'], item.value === category && cn.active)}>
             {item.label}
           </button>
         ))}

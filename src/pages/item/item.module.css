@@ -2,4 +2,89 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  width: 100%;
+  color: white;
+}
+
+.carousel {
+  margin: 0 auto;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.price {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.color-selector {
+  margin-top: 20px;
+}
+
+.colors {
+  display: flex;
+  gap: 10px;
+}
+
+.colorCircle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.activeColor {
+  border-color: #b4b4b4; /* Обводка активного цвета */
+}
+
+.sizes {
+  display: flex;
+  gap: 10px;
+}
+
+.size {
+  background-color: #fce133;
+  color: black;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Montserrat';
+}
+
+.description {
+  font-family: 'Open Sans';
+  color: rgb(211, 211, 211);
+  font-size: 14px;
+  line-height: 1.4em;
+  margin-top: 24px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category {
+  font-size: 14px;
+  color: rgb(211, 211, 211);
 }

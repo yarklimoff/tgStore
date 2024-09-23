@@ -1,9 +1,9 @@
 .app {
   display: flex;
   justify-content: center;
-  font-family: 'Roboto';
+  font-family: 'Montserrat';
   min-height: 100vh;
-  background-color: rgb(223, 223, 223);
+  background-color: #1C1C1C;
   width: 100%;
-  padding: 10px;
+  padding: 20px;
 }
