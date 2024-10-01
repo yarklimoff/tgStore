@@ -108,7 +108,7 @@ const Catalog = () => {
     <>
       <div className={cn.container}>
         <Input placeholder="Найти товары" prefix={<SearchOutlined />} className={cn.search} />
-        <Image src={Banner} className={cn.banner} alt="banner" />
+        <img src={Banner} className={cn.banner} alt="banner" />
         <Categories category={category} onChangeCategory={setCategory} />
         <Goods items={currentItems} />
         <NavBar />

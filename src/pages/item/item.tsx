@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { Carousel } from 'antd';
 import { useParams } from 'react-router-dom';
 import { PRODUCTS } from '../catalog/catalog';
-import { NavBar } from '../../features/navBar/navBar';
 
 const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F0', '#FFC133'];
 const sizes = [41, 42, 43, 44, 45];
@@ -35,15 +34,15 @@ const Item = () => {
         </Carousel>
         <div className={cn.header}>
           <div className={cn.titleContainer}>
-            <h2 className={cn.title}>UrbanFlex Pro</h2>
+            <h2 className={cn.title}>{item?.title}</h2>
             <div className={cn.category}>Мужские кроссовки</div>
           </div>
-          <div className={cn.price}>6500 ₽</div>
+          <div className={cn.price}>{item?.price} ₽</div>
         </div>
         <p className={cn.description}>
-          Эти кроссовки созданы для тех, кто ценит комфорт и стиль в повседневной жизни. Модель
-          UrbanFlex Pro сочетает в себе ультралегкий дышащий материал и современный дизайн, который
-          подходит как для городских прогулок, так и для активного отдыха.
+          {`Эти кроссовки созданы для тех, кто ценит комфорт и стиль в повседневной жизни. Модель 
+          ${item?.title} сочетает в себе ультралегкий дышащий материал и современный дизайн, который
+          подходит как для городских прогулок, так и для активного отдыха.`}
         </p>
         <h3>Цвет</h3>
         <div className={cn.colors}>
@@ -64,7 +63,9 @@ const Item = () => {
             </div>
           ))}
         </div>
-        <NavBar />
+        <div className={cn.buy}>
+          <button className={cn.addCart}>В корзину</button>
+        </div>
       </div>
     </>
   );

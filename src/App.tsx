@@ -3,6 +3,7 @@ import { Item } from './pages/item/item';
 import 'normalize.css';
 import cn from './App.module.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Cart } from './pages/cart/cart';
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: '/catalog/:article',
     element: <Item />,
+  },
+  {
+    path: '/cart',
+    element: <Cart />,
   },
 ]);
 
