@@ -1,6 +1,4 @@
 import { HomeOutlined, HeartOutlined, ShoppingCartOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import React from 'react';
 import cn from './navBar.module.css';
 import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
