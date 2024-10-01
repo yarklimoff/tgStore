@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Categories } from './categories/categories';
 import { Goods } from './goods/goods';
 import cn from './catalog.module.css';
-import { Image, Input } from 'antd';
+import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Boots1 from '../../assets/boots1.png';
 import Boots2 from '../../assets/boots2.png';
