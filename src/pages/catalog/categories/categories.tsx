@@ -7,23 +7,23 @@ const mockCategories: { value: string; label: ReactNode }[] = [
     label: 'Все',
   },
   {
-    value: 'boots',
+    value: 'Adidas',
     label: 'Adidas',
   },
   {
-    value: 'parfum',
+    value: 'Nike',
     label: 'Nike',
   },
   {
-    value: 'tech',
+    value: 'Puma',
     label: 'Puma',
   },
   {
-    value: 'tech',
+    value: 'Reebok',
     label: 'Reebok',
   },
   {
-    value: 'tech',
+    value: 'Vans',
     label: 'Vans',
   },
 ];

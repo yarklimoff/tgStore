@@ -4,6 +4,7 @@
   flex: 1;
   width: 100%;
   color: white;
+  margin-bottom: 60px;
 }
 
 .carousel {
@@ -49,20 +50,21 @@
   transition: border-color 0.3s;
 }
 
-.activeColor {
-  border-color: #b4b4b4; /* Обводка активного цвета */
-}
-
 .sizes {
   display: flex;
   gap: 10px;
+  font-weight: 500;
 }
 
 .size {
-  background-color: #fce133;
+  background-color: #d3bc2a;
   color: black;
   padding: 12px 16px;
   border-radius: 8px;
+}
+
+.active {
+  background-color: #e8f716;
 }
 
 .title {

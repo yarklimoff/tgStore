@@ -4,6 +4,8 @@ import 'normalize.css';
 import cn from './App.module.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Cart } from './pages/cart/cart';
+import { Global, GlobalContext } from './global';
+import { useMemo } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -21,9 +23,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const global = useMemo(() => new Global(), []);
   return (
     <div className={cn.app}>
-      <RouterProvider router={router} />
+      <GlobalContext.Provider value={global}>
+        <RouterProvider router={router} />
+      </GlobalContext.Provider>
     </div>
   );
 }

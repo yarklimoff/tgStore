@@ -16,7 +16,6 @@ const PreviewCard: FC<ItemCardProps> = ({ article, title, price, imgUrl }) => {
   const onLikeClick = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
     event.stopPropagation();
   };
-  console.log(imgUrl);
   return (
     <div className={cn.container}>
       {' '}

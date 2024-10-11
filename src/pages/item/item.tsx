@@ -5,20 +5,20 @@ import classNames from 'classnames';
 import { Carousel } from 'antd';
 import { useParams } from 'react-router-dom';
 import { PRODUCTS } from '../catalog/catalog';
+import { NavBar } from '../../features/navBar/navBar';
+import { useGlobalContext } from '../../global';
+import { observer } from 'mobx-react-lite';
 
 const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F0', '#FFC133'];
 const sizes = [41, 42, 43, 44, 45];
 
-const Item = () => {
+const Item = observer(() => {
   const { article } = useParams();
-  const item = PRODUCTS.find((prod) => prod.article === 1);
-  console.log(
-    article,
-    PRODUCTS.find((prod) => prod.article === 1),
-  );
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const handleColorSelect = (color: string) => {
-    setSelectedColor(color);
+  const global = useGlobalContext();
+  const item = PRODUCTS.find((prod) => prod.article === parseInt(article!));
+  const [selectedSize, setSelectedSize] = useState<number | null>(null);
+  const handleSizeSelect = (size: number) => {
+    setSelectedSize(size);
   };
   return (
     <>
@@ -44,31 +44,30 @@ const Item = () => {
           ${item?.title} сочетает в себе ультралегкий дышащий материал и современный дизайн, который
           подходит как для городских прогулок, так и для активного отдыха.`}
         </p>
-        <h3>Цвет</h3>
-        <div className={cn.colors}>
-          {colors.map((color, index) => (
-            <div
-              key={index}
-              className={classNames(cn.colorCircle, selectedColor === color && cn.activeColor)}
-              style={{ backgroundColor: color }}
-              onClick={() => handleColorSelect(color)}
-            />
-          ))}
-        </div>
+
         <h3>Размер</h3>
         <div className={cn.sizes}>
           {sizes.map((size, index) => (
-            <div key={index} className={cn.size}>
+            <div
+              onClick={() => handleSizeSelect(size)}
+              key={index}
+              className={classNames(cn.size, selectedSize === size && cn.active)}>
               {size}
             </div>
           ))}
         </div>
         <div className={cn.buy}>
-          <button className={cn.addCart}>В корзину</button>
+          <button
+            disabled={selectedSize === null}
+            className={cn.addCart}
+            onClick={() => global?.addToCart(item?.article)}>
+            В корзину
+          </button>
         </div>
       </div>
+      <NavBar />
     </>
   );
-};
+});
 
 export { Item };
