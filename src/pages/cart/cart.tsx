@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import cn from './cart.module.css';
 import { LeftOutlined } from '@ant-design/icons';
 import { Button } from 'antd';

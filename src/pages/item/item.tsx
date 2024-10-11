@@ -9,7 +9,6 @@ import { NavBar } from '../../features/navBar/navBar';
 import { useGlobalContext } from '../../global';
 import { observer } from 'mobx-react-lite';
 
-const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33F0', '#FFC133'];
 const sizes = [41, 42, 43, 44, 45];
 
 const Item = observer(() => {
