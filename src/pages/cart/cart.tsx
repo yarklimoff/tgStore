@@ -11,6 +11,27 @@ const Cart = observer(() => {
     navigate('/');
   };
   const global = useGlobalContext();
+  const handleOrderSubmit = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/order', {
+        // URL бекенда
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ chatId: global?.chatId }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Order submitted:', data);
+      } else {
+        console.error('Error submitting order:', response.status);
+      }
+    } catch (error) {
+      console.error('Error submitting order:', error);
+    }
+  };
   return (
     <div className={cn.container}>
       <Button icon={<LeftOutlined />} onClick={onClickBack} />
@@ -55,7 +76,9 @@ const Cart = observer(() => {
             ₽
           </div>
         </div>
-        <button className={cn.order}>Заказать</button>
+        <button className={cn.order} onClick={() => handleOrderSubmit()}>
+          Заказать
+        </button>
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Сбрасываем скролл на верх при каждом изменении маршрута
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
@@ -49,6 +49,14 @@ function ScrollToTop() {
 
 function App() {
   const global = useMemo(() => new Global(), []);
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatIdFromUrl = urlParams.get('chatId');
+
+    if (chatIdFromUrl) {
+      global.setChatId(chatIdFromUrl);
+    }
+  }, [global]);
   return (
     <div className={cn.app}>
       <GlobalContext.Provider value={global}>

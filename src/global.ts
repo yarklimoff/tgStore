@@ -20,13 +20,20 @@ class CartItem {
 
 class Global {
   cart: Map<number, CartItem> = new Map();
+  chatId: string | null = null;
   constructor() {
     makeObservable(this, {
       cart: observable,
+      chatId: observable,
+      setChatId: action,
       addToCart: action,
       removeFromCart: action,
     });
   }
+
+  setChatId = (chatId: string) => {
+    this.chatId = chatId;
+  };
 
   addToCart = (article: number | undefined) => {
     if (article === undefined) {

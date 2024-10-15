@@ -60,7 +60,14 @@ const Item = observer(() => {
             disabled={selectedSize === null}
             className={cn.addCart}
             onClick={() => global?.addToCart(item?.article)}>
-            В корзину
+            <div className={cn.buttonContent}>
+              Заказать{' '}
+              {item?.article !== undefined && (global?.cart.get(item?.article)?.count ?? 0) > 0 ? (
+                <div className={cn.count}>{global?.cart.get(item?.article)?.count}</div>
+              ) : (
+                <span></span>
+              )}
+            </div>
           </button>
         </div>
       </div>

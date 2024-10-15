@@ -104,3 +104,16 @@
   font-weight: 600;
   height: 40px;
 }
+
+.count {
+  background-color: #d3bc2a;
+  border-radius: 100px;
+  width: 18px;
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px
+}
